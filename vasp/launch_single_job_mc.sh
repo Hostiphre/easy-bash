@@ -13,7 +13,7 @@ MKL_NUM_THREADS=1
 
 ulimit -s unlimited 
 module load intelcdk-17.1 
-mpirun -n $PBS_NUM_PPN /storage/brno2/home/hostiphre/vasp-knl-master/bin/vasp_std 
+mpirun -n $PBS_NUM_PPN /storage/brno2/home/hostiphre/vasp/bin/vasp_std 
 cp $SCRATCHDIR/* $PBS_O_WORKDIR 
 rm $SCRATCHDIR/* 
 
