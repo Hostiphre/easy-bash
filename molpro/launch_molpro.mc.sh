@@ -5,9 +5,9 @@
 #PBS -N job
 #PBS -j oe
 
-#trap "clean_scratch" TERM EXIT
+trap "clean_scratch" TERM EXIT
 ulimit -s unlimited
-module add molpro
+MOLPRO=/storage/brno2/home/hostiphre/molpro/molprop_2015_1_linux_x86_64_i8/bin/molpro
 
 cd $PBS_O_WORKDIR
 cp *.com $SCRATCHDIR/
@@ -15,7 +15,7 @@ cd $SCRATCHDIR
 
 for file in `ls`
 do
-  molpro -t 1 $file
+  $MOLPRO -t 1 $file
 done
 
 cp $SCRATCHDIR/*.out $PBS_O_WORKDIR/
